@@ -26,6 +26,7 @@ public class MyView extends View {
     public MyView(Context context) {
         super(context);
         initPaint();    //设置画笔
+
     }
 
     //设置数据
@@ -56,6 +57,11 @@ public class MyView extends View {
         paint.setTextSize(30);
         //初始化区域
         rectF = new RectF();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     //确定View大小
@@ -89,6 +95,7 @@ public class MyView extends View {
             currentStartAngle += viewData.angle;     //改变起始角度
         }
     }
+
 
     private void initData() {
         if (null == viewDatas || viewDatas.size() == 0) {
