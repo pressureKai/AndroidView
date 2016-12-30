@@ -5,4 +5,4 @@
 
 
 # 递增直方图View
-![](http://upload-images.jianshu.io/upload_images/2833342-a138d119eff68a40.gif?imageMogr2/auto-orient/strip)
+![demo](http://upload-images.jianshu.io/upload_images/2833342-a138d119eff68a40.gif?imageMogr2/auto-orient/strip)
