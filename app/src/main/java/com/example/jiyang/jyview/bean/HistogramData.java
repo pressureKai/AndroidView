@@ -1,4 +1,4 @@
-package com.example.jiyang.jyview;
+package com.example.jiyang.jyview.bean;
 
 /**
  * Created by jiyang on 16-12-27.
@@ -10,6 +10,9 @@ public class HistogramData {
     public String name;
 
     public float persentage;
+    public float y;
+    public float x;
+    public int color;
 
     public HistogramData(int value, String name) {
         this.value = value;
