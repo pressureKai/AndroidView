@@ -6,13 +6,13 @@ package com.example.jiyang.jyview.bean;
  */
 
 public class HistogramData {
-    public int value;
-    public String name;
+    public int value;       //数值
+    public String name;     //文字描述
 
-    public float persentage;
-    public float y;
-    public float x;
-    public int color;
+    public float persentage;    //占数据总数的百分比
+    public float y;         //在直方图上的x轴坐标
+    public float x;         //在直方图上的y轴坐标
+    public int color;       //填充颜色
 
     public HistogramData(int value, String name) {
         this.value = value;

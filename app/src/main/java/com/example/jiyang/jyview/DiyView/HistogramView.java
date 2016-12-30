@@ -89,7 +89,7 @@ public class HistogramView extends View {
                     //注意：画布的坐标是左上角为原点，所以是
                     // 从 画布高-10 为起点, 数据高度 为终点
                     // 递减
-                    for (int j = HistogramView.this.h - 10; j >= endY; j--) {
+                    for (int j = HistogramView.this.h; j >= endY; j--) {
                         histogramData.x = startX;
                         histogramData.y = j;
                         //通知UI更新
@@ -108,8 +108,8 @@ public class HistogramView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        this.w = w;
-        this.h = h;
+        this.w = w - 10;
+        this.h = h - 10;
 
     }
 
@@ -118,8 +118,8 @@ public class HistogramView extends View {
         super.onDraw(canvas);
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(5);
-        canvas.drawLine(10, h - 10, w - 10, h - 10, paint);      //画坐标系X轴
-        canvas.drawLine(10, h - 10, 10, 10, paint);              //画坐标系Y轴
+        canvas.drawLine(10, h, w, h, paint);      //画坐标系X轴
+        canvas.drawLine(10, h, 10, 10, paint);    //画坐标系Y轴
 
         paint.setStrokeWidth(mWidth);
         paint.setStyle(Paint.Style.STROKE);
@@ -129,7 +129,7 @@ public class HistogramView extends View {
         for (int i = 0; i < datas.size(); i++) {
             HistogramData histogramData = datas.get(i);
             paint.setColor(histogramData.color);
-            canvas.drawLine(histogramData.x, h - 10, histogramData.x, histogramData.y,
+            canvas.drawLine(histogramData.x, h, histogramData.x, histogramData.y,
                     paint);
 
             //直方图顶部文字
