@@ -1,4 +1,4 @@
-package com.example.jiyang.jyview.bean;
+package github.stefanji.views.histogram;
 
 /**
  * Created by jiyang on 16-12-27.

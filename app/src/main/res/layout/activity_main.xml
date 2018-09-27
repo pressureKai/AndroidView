@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.jiyang.jyview.MainActivity">
 
-    <com.example.jiyang.jyview.DiyView.HistogramView
+    <github.stefanji.views.histogram.HistogramView
         android:id="@+id/h"
         android:layout_width="300dp"
         android:layout_height="300dp"

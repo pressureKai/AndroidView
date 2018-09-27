@@ -1,4 +1,4 @@
-package com.example.jiyang.jyview.DiyView;
+package github.stefanji.views.shanXin;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,7 +8,6 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.jiyang.jyview.bean.ShanXinViewData;
 
 import java.util.ArrayList;
 

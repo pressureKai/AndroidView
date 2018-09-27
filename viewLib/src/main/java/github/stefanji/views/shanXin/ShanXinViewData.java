@@ -1,4 +1,4 @@
-package com.example.jiyang.jyview.bean;
+package github.stefanji.views.shanXin;
 
 /**
  * Created by jiyang on 16-12-25.

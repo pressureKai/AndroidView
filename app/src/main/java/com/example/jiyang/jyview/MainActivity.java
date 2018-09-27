@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.jiyang.jyview.DiyView.HistogramView;
-import com.example.jiyang.jyview.bean.HistogramData;
+import github.stefanji.views.histogram.HistogramData;
 
 import java.util.ArrayList;
+
+import github.stefanji.views.histogram.HistogramView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        histogramView = (HistogramView) findViewById(R.id.h);
+        histogramView = findViewById(R.id.h);
         histogramView.setVisibility(View.INVISIBLE);
         histogramDatas = new ArrayList<>();
         histogramDatas.add(new HistogramData(30, "30"));
