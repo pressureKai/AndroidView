@@ -10,6 +10,7 @@ Android Custom Views
 - Histogram 
 
 `iewLib/src/main/java/github/stefanji/views/histogram`
+
 ![demo](http://upload-images.jianshu.io/upload_images/2833342-a138d119eff68a40.gif?imageMogr2/auto-orient/strip)
 
 ## TODO

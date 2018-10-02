@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="JumpWater">
+        <!--水滴颜色-->
+        <attr name="water_color" format="color" />
+        <!--底部线条颜色-->
+        <attr name="line_color" format="color" />
+        <!--底部线条高度-->
+        <attr name="line_height" format="dimension" />
+        <!--整体动画时长-->
+        <attr name="anim_duration" format="float" />
+    </declare-styleable>
+</resources>

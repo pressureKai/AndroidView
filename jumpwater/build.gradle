@@ -3,16 +3,11 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion CompileSdkVersion as Integer
-    buildToolsVersion BuildToolsVersion
-
     defaultConfig {
         minSdkVersion MinSdkVersion as Integer
         targetSdkVersion TargetSdkVersion as Integer
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -21,17 +16,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets{
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-}
-repositories {
-    mavenCentral()
 }

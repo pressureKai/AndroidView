@@ -1,1 +1,1 @@
-include ':app', ':viewLib'
+include ':app', ':viewLib', ':jumpwater'
