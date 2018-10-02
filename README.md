@@ -13,6 +13,6 @@ Android Custom Views
 
 ![demo](http://upload-images.jianshu.io/upload_images/2833342-a138d119eff68a40.gif?imageMogr2/auto-orient/strip)
 
-## TODO
+- Jump Water
 
-- [ ]   Jump 💧
+![jump water](https://github.com/stefanJi/AndroidView/blob/master/gif/jumpWater.gif)
