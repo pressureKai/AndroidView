@@ -10,18 +10,21 @@ import android.animation.ValueAnimator
 class AnimatorHelper(val target: JumpWater) {
 
     // Jump Animator
-    private var animDuration = 300L
+    var animDuration = 300L
+    private var isRunningAnim = false
     private var animStartDown: ValueAnimator? = null
     private var animStartJump: ValueAnimator? = null
     private var animJump: ValueAnimator? = null
     private var animDown: ValueAnimator? = null
     private var animTail: ValueAnimator? = null
-    private var animTailReconver: ValueAnimator? = null
+    private var animTailRecover: ValueAnimator? = null
 
     private var mOnAnimEndListener: OnAnimEndListener? = null
     private var animSet: AnimatorSet? = null
     internal fun startJump(tailMove: Float, jumpH: Float) {
-        endJump()
+        if (isRunningAnim) {
+            return
+        }
         animStartDown = ValueAnimator.ofFloat(0f, jumpH).apply {
             duration = animDuration
             addUpdateListener {
@@ -52,7 +55,7 @@ class AnimatorHelper(val target: JumpWater) {
                 target.updateTail(it.animatedValue as Float)
             }
         }
-        animTailReconver = ValueAnimator.ofFloat(tailMove, 0f).apply {
+        animTailRecover = ValueAnimator.ofFloat(tailMove, 0f).apply {
             duration = animDuration
             addUpdateListener {
                 target.updateTail(it.animatedValue as Float)
@@ -63,18 +66,19 @@ class AnimatorHelper(val target: JumpWater) {
             playTogether(animJump, animTail)
         }
 
-        val tailSetReconver = AnimatorSet().apply {
-            playTogether(animDown, animTailReconver)
+        val tailSetRecover = AnimatorSet().apply {
+            playTogether(animDown, animTailRecover)
         }
 
         animSet = AnimatorSet().apply {
-            playSequentially(animStartDown, animStartJump, tailSet, tailSetReconver)
+            playSequentially(animStartDown, animStartJump, tailSet, tailSetRecover)
             addListener(object : Animator.AnimatorListener {
                 override fun onAnimationRepeat(animation: Animator?) {
 
                 }
 
                 override fun onAnimationEnd(animation: Animator?) {
+                    isRunningAnim = false
                     mOnAnimEndListener?.onAnimEnd()
                 }
 
@@ -82,6 +86,7 @@ class AnimatorHelper(val target: JumpWater) {
                 }
 
                 override fun onAnimationStart(animation: Animator?) {
+                    isRunningAnim = true
                 }
             })
             start()
@@ -89,22 +94,7 @@ class AnimatorHelper(val target: JumpWater) {
     }
 
     internal fun endJump() {
-        animStartDown?.apply {
-            if (isRunning) {
-                cancel()
-            }
-        }
-        animStartJump?.apply {
-            if (isRunning) {
-                cancel()
-            }
-        }
-        animDown?.apply {
-            if (isRunning) {
-                cancel()
-            }
-        }
-        animTail?.apply {
+        animSet?.apply {
             if (isRunning) {
                 cancel()
             }

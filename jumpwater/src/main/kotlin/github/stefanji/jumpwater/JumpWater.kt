@@ -30,7 +30,7 @@ class JumpWater @JvmOverloads constructor(
 
     // For water
     private var xoff = 70f
-    private var yoff = 60f
+    private var yoff = 0f
     private var startX = 0f
     private var startY = 0f
     private var endY = 0f
@@ -44,6 +44,7 @@ class JumpWater @JvmOverloads constructor(
     private var circleX = 0f
     private var circleY = 0f
     private var circleR = 0f
+    private var jumpH = 0f
     private val waterPath = Path()
     private val waterPaint = Paint().apply {
         style = Paint.Style.FILL
@@ -80,8 +81,9 @@ class JumpWater @JvmOverloads constructor(
     }
 
     @JvmOverloads
-    fun jump(jumpH: Float = 50f, tailMove: Float = 100f) {
+    fun jump(tailMove: Float = 100f) {
         post {
+            animatorHelper.animDuration = 300L
             animatorHelper.startJump(tailMove, jumpH)
         }
     }
@@ -93,6 +95,7 @@ class JumpWater @JvmOverloads constructor(
         setMeasuredDimension(canvasW, canvasH)
         initPoint()
         calculatePoint()
+        jumpH = canvasH / 6f
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -181,7 +184,7 @@ class JumpWater @JvmOverloads constructor(
 
     private fun initPoint() {
         xoff = canvasW / 3f
-        yoff = 70f
+        yoff = canvasH / 6f
 
         startPoint.x = canvasW / 2f
         startPoint.y = yoff
@@ -204,7 +207,7 @@ class JumpWater @JvmOverloads constructor(
         control2.y = control1.y
 
         control3.x = startPoint.x - xoff / 4
-        control3.y = (endPoint.y - startPoint.y)
+        control3.y = endPoint.y - startPoint.y
 
         control4.x = startPoint.x + xoff / 4
         control4.y = control3.y
